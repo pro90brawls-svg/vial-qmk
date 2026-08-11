@@ -1,22 +1,21 @@
 {
-    "keyboard_name": "OneKey RP2040",
+    "keyboard_name": "Onekey RP2040",
     "manufacturer": "Custom",
-    "maintainer": "me",
-    "development_board": "rpi_pico",
+    "url": "",
+    "maintainer": "pro90brawls-svg",
+    "processor": "RP2040",
     "bootloader": "rp2040",
-    "features": {
-        "bootmagic": true,
-        "extrakey": true,
-        "mousekey": true,
-        "nkro": true
+    "matrix_size": {
+        "cols": 1,
+        "rows": 1
     },
     "matrix_pins": {
-        "direct": [
-            ["GP28"]
-        ]
+        "cols": ["GP0"],
+        "rows": ["GP1"]
     },
+    "diode_direction": "COL2ROW",
     "layouts": {
-        "LAYOUT_ortho_1x1": {
+        "LAYOUT": {
             "layout": [
                 {"matrix": [0, 0], "x": 0, "y": 0}
             ]
