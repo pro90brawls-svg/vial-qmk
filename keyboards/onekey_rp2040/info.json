@@ -1,23 +1,18 @@
 {
     "keyboard_name": "Onekey RP2040",
     "manufacturer": "Custom",
-    "url": "",
-    "maintainer": "pro90brawls-svg",
+    "maintainer": "qmk",
     "processor": "RP2040",
     "bootloader": "rp2040",
-    "matrix_size": {
-        "cols": 1,
-        "rows": 1
-    },
-    "matrix_pins": {
-        "cols": ["GP0"],
-        "rows": ["GP1"]
-    },
-    "diode_direction": "COL2ROW",
+    "direct_pins": [
+        ["GP0", "GP1", "GP2"]
+    ],
     "layouts": {
         "LAYOUT": {
             "layout": [
-                {"matrix": [0, 0], "x": 0, "y": 0}
+                {"matrix": [0, 0], "x": 0, "y": 0},
+                {"matrix": [0, 1], "x": 1, "y": 0},
+                {"matrix": [0, 2], "x": 2, "y": 0}
             ]
         }
     }
