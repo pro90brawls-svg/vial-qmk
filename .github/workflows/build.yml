@@ -1,6 +1,11 @@
-name: Build QMK Firmware
+name: Build Firmware
 
-on: [push, pull_request]
+on:
+  push:
+    branches: [ master, main ]
+  pull_request:
+    branches: [ master, main ]
+  workflow_dispatch:
 
 jobs:
   build:
@@ -8,20 +13,22 @@ jobs:
     container: ghcr.io/qmk/qmk_cli:latest
 
     steps:
-      - name: Checkout code
+      - name: Checkout repository
         uses: actions/checkout@v4
         with:
           submodules: recursive
 
-      - name: Compile Firmware
+      - name: Fix Safe Directory
+        run: git config --global --add safe.directory $(pwd)
+
+      - name: Build Firmware
         run: |
           qmk compile -kb onekey_rp2040 -km default
 
-      - name: Upload Firmware Artifact
+      - name: Upload UF2 Artifact
         uses: actions/upload-artifact@v4
         with:
           name: onekey_rp2040_firmware
           path: |
             *.uf2
-            *.bin
-            *.hex
+            .build/*.uf2
