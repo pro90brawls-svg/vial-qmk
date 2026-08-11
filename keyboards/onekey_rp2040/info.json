@@ -1,0 +1,25 @@
+{
+    "keyboard_name": "OneKey RP2040",
+    "manufacturer": "Custom",
+    "url": "",
+    "maintainer": "me",
+    "usb": {
+        "vid": "0x4355",
+        "pid": "0x0001",
+        "device_version": "1.0.0"
+    },
+    "processor": "RP2040",
+    "bootloader": "rp2040",
+    "matrix_pins": {
+        "direct": [
+            ["GP28"]
+        ]
+    },
+    "layouts": {
+        "LAYOUT_ortho_1x1": {
+            "layout": [
+                {"matrix": [0, 0], "x": 0, "y": 0}
+            ]
+        }
+    }
+}
