@@ -23,7 +23,7 @@ jobs:
 
       - name: Build Firmware
         run: |
-          qmk compile -kb onekey_rp2040 -km default
+          qmk compile -kb onekey_rp2040 -km vial
 
       - name: Upload UF2 Artifact
         uses: actions/upload-artifact@v4
