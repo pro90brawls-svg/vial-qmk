@@ -1,0 +1,27 @@
+name: Build Vial Firmware
+
+on:
+  push:
+  workflow_dispatch:
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    container: ghcr.io/qmk/qmk_cli:latest
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v3
+        with:
+          submodules: recursive
+
+      - name: Build Firmware
+        run: |
+          qmk compile -kb onekey_rp2040 -km vial
+
+      - name: Upload UF2 Artifact
+        uses: actions/upload-artifact@v4
+        with:
+          name: onekey_rp2040_vial
+          path: |
+            *.uf2
