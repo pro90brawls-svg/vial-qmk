@@ -1,8 +1,6 @@
-name: Build Vial Firmware
+name: Build QMK Firmware
 
-on:
-  push:
-  workflow_dispatch:
+on: [push, pull_request]
 
 jobs:
   build:
@@ -10,19 +8,20 @@ jobs:
     container: ghcr.io/qmk/qmk_cli:latest
 
     steps:
-      - name: Checkout
+      - name: Checkout code
         uses: actions/checkout@v4
         with:
           submodules: recursive
-          fetch-depth: 0
 
-      - name: Build Firmware
+      - name: Compile Firmware
         run: |
-          qmk compile -kb onekey_rp2040 -km vial
+          qmk compile -kb onekey_rp2040 -km default
 
-      - name: Upload UF2 Artifact
+      - name: Upload Firmware Artifact
         uses: actions/upload-artifact@v4
         with:
-          name: onekey_rp2040_vial
+          name: onekey_rp2040_firmware
           path: |
             *.uf2
+            *.bin
+            *.hex
