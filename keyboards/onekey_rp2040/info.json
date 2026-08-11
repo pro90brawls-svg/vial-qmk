@@ -1,15 +1,16 @@
 {
+{
     "keyboard_name": "OneKey RP2040",
     "manufacturer": "Custom",
-    "url": "",
     "maintainer": "me",
-    "usb": {
-        "vid": "0x4355",
-        "pid": "0x0001",
-        "device_version": "1.0.0"
-    },
-    "processor": "RP2040",
+    "development_board": "rpi_pico",
     "bootloader": "rp2040",
+    "features": {
+        "bootmagic": true,
+        "extrakey": true,
+        "mousekey": true,
+        "nkro": true
+    },
     "matrix_pins": {
         "direct": [
             ["GP28"]
